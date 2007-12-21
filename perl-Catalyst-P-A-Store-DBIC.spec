@@ -26,6 +26,7 @@ BuildRequires:	perl(Set::Object) >= 1.14
 Provides:	perl-%{realname}
 Obsoletes:	perl-%{realname}
 BuildArch:	noarch
+Buildroot:	%_tmppath/%{name}-%{version}-%{release}-buildroot
 
 %description
 This Catalyst plugin uses a DBIx::Class (or Class::DBI) object to
