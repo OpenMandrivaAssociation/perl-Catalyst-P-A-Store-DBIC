@@ -1,32 +1,28 @@
-%define realname Catalyst-Plugin-Authentication-Store-DBIC
-%define abbrevname Catalyst-P-A-Store-DBIC
-%define name	perl-%{abbrevname}
-%define	modprefix Catalyst
+%define upstream_name    Catalyst-Plugin-Authentication-Store-DBIC
+%define upstream_version 0.11
 
-%define version	0.07
-%define release	%mkrel 4
+Name:		perl-Catalyst-P-A-Store-DBIC
+Version:	%perl_convert_version %{upstream_version}
+Release:	%mkrel 1
+Epoch:		1
 
 Summary:	Authentication and authorization against a Class::DBI model
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-Epoch:		1
 License:	Artistic/GPL
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{realname}/
-Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%{realname}-%{version}.tar.bz2
+URL:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:    ftp://ftp.perl.org/pub/CPAN/modules/by-module/Catalyst/%{upstream_name}-%{upstream_version}.tar.gz
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildRequires:	perl(Catalyst) >= 5.49
 BuildRequires:	perl(Catalyst::Plugin::Authentication) >= 0.06
 BuildRequires:	perl(DBI)
-BuildRequires:	perl(Module::Build)
 BuildRequires:	perl(Set::Object) >= 1.14
-Provides:	perl-%{realname}
-Obsoletes:	perl-%{realname}
+Provides:	perl-%{upstream_name}
+Obsoletes:	perl-%{upstream_name}
 BuildArch:	noarch
-Buildroot:	%_tmppath/%{name}-%{version}-%{release}-buildroot
+Buildroot:	%_tmppath/%{name}-%{version}-%{release}
 
 %description
 This Catalyst plugin uses a DBIx::Class (or Class::DBI) object to
@@ -34,27 +30,25 @@ authenticate a user.
 
 
 %prep
-%setup -q -n %realname-%version
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%__perl Build.PL installdirs=vendor
-./Build
+%__perl Makefile.PL INSTALLDIRS=vendor
+%make
 
 %check
-./Build test
+#%make test
 
 %install
 rm -rf %{buildroot}
-./Build install destdir=%{buildroot}
-
-%files
-%defattr(-,root,root)
-%doc README Changes
-%perl_vendorlib/%{modprefix}
-%_mandir/*/*
+%makeinstall_std
 
 %clean
 rm -rf %{buildroot}
 
-
+%files
+%defattr(-,root,root)
+%doc README Changes
+%perl_vendorlib/Catalyst
+%_mandir/*/*
 
