@@ -17,8 +17,14 @@ BuildRequires:	perl-devel
 %endif
 BuildRequires:	perl(Catalyst) >= 5.49
 BuildRequires:	perl(Catalyst::Plugin::Authentication) >= 0.06
+BuildRequires:  perl(Catalyst::Model::DBIC::Schema)
+BuildRequires:  perl(Catalyst::Plugin::Authorization::Roles)
+BuildRequires:  perl(Catalyst::Plugin::Session::State::Cookie)
+BuildRequires:  perl(Class::DBI)
 BuildRequires:	perl(DBI)
+BuildRequires:  perl(DBIx::Class)
 BuildRequires:	perl(Set::Object) >= 1.14
+BuildRequires:  perl(Test::WWW::Mechanize::Catalyst)
 Provides:	perl-%{upstream_name}
 Obsoletes:	perl-%{upstream_name}
 BuildArch:	noarch
