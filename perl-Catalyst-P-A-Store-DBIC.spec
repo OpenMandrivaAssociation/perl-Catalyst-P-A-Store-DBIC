@@ -3,7 +3,7 @@
 
 Name:		perl-Catalyst-P-A-Store-DBIC
 Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Release:	6
 Epoch:		1
 
 Summary:	Authentication and authorization against a Class::DBI model
