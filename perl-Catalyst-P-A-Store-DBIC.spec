@@ -2,14 +2,14 @@
 %define upstream_version 0.11
 
 Name:		perl-Catalyst-P-A-Store-DBIC
-Version:	%perl_convert_version %{upstream_version}
-Release:	6
+Version:	%{upstream_version}
+Release:	7
 Epoch:		1
 
 Summary:	Authentication and authorization against a Class::DBI model
 License:	Artistic/GPL
 Group:		Development/Perl
-URL:		https://search.cpan.org/dist/%{upstream_name}/
+URL:		https://metacpan.org/dist/Catalyst-Plugin-Authentication-Store-DBIC
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Catalyst/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	make
