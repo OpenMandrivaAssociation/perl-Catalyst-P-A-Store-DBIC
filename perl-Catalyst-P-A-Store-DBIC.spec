@@ -1,16 +1,14 @@
 %define upstream_name    Catalyst-Plugin-Authentication-Store-DBIC
-%define upstream_version 0.11
-
 Name:		perl-Catalyst-P-A-Store-DBIC
-Version:	%{upstream_version}
-Release:	7
+Version:	0.11
+Release:	8
 Epoch:		1
 
 Summary:	Authentication and authorization against a Class::DBI model
 License:	Artistic/GPL
 Group:		Development/Perl
 URL:		https://metacpan.org/dist/Catalyst-Plugin-Authentication-Store-DBIC
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Catalyst/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Catalyst/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -33,7 +31,7 @@ This Catalyst plugin uses a DBIx::Class (or Class::DBI) object to
 authenticate a user.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -63,9 +61,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 + Revision: 395099
 - adding missing buildrequires
 - update to 0.11
-- using %%perl_convert_version
-
-* Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 1:0.07-4mdv2009.0
+- using %0.11 Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 1:0.07-4mdv2009.0
 + Revision: 241156
 - rebuild
 - kill re-definition of %%buildroot on Pixel's request
